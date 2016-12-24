@@ -37,11 +37,11 @@ if os.path.exists(TMP_FILE):
     if(old_down<down):
         print (((down-old_down)/delta_time)*MUTLIPLIER)
     else:
-        print (0)
+        print (((down)/delta_time)*MUTLIPLIER)
     if(old_up<up):
         print (((up-old_up)/delta_time)*MUTLIPLIER)
     else:
-        print (0)
+        print (((up)/delta_time)*MUTLIPLIER)
 else:
     write_file(str(int(round(time.time() * 1000))),str(down),str(up))
     print (0)

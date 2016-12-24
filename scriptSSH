@@ -7,7 +7,7 @@
 set env(TERM) vt100
 set env(SHELL) /bin/sh
 set env(HOME) /usr/local/bin
-spawn ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -o MACs=hmac-sha1 -o StrictHostKeyChecking=no admin@garislab.dlinkddns.com
+spawn ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -o MACs=hmac-sha1 -o StrictHostKeyChecking=no USER@HOST
 expect "*?assword:*"
 send -- "PASSWORD\r"
 # send blank line (\r) to make sure we get back to gui
