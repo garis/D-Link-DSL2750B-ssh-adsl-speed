@@ -1,0 +1,21 @@
+#!/usr/bin/expect -f
+#set password PASSWORD
+#set env(TERM) vt100
+#set env(SHELL) /bin/sh
+#set env(HOME) /usr/local/bin
+
+set env(TERM) vt100
+set env(SHELL) /bin/sh
+set env(HOME) /usr/local/bin
+spawn ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -o MACs=hmac-sha1 -o StrictHostKeyChecking=no admin@garislab.dlinkddns.com
+expect "*?assword:*"
+send -- "PASSWORD\r"
+# send blank line (\r) to make sure we get back to gui
+send -- "\r"
+expect "*>*"
+send "sh\r"
+send "ifconfig pppoa0\r"
+expect "*multicast bytes*"
+send "exit\r"
+send "exit\r"
+expect eof
